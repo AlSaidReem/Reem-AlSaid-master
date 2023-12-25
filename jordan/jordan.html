@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Al Bosta | Jordan </title>
+     <!-- style sheet -->
+    <link rel="stylesheet" href="jordan.css">
+    <!-- icon link  -->
+    <link rel="icon" href="/images/logo.png">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/index/index.html"><img src="/images/logo.png" alt=" Al Bosta Logo"></a>
+        <div class="menu-btn"> </div>
+        <div class="navigation">
+          <div class="navigation-items">
+              <a href="/index/index.html"> Home </a>
+              <a href="/about/about.html"> About us </a>
+              <a id="drop"> Destinations </a>
+                <ul class="drop-down">
+                  <li><a href="#home" style="color: black;"> Jordan</a></li>
+                  <li><a href="/palestine/palestine.html"> Palestine</a></li>
+                </ul>
+              <a href="/contact/contact.html"> Contact us </a>
+              <a id="sigupp"> Sign Up </a>
+              <button id="loginn">Login </button>
+          </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1> Jordan </h1>
+    </section>
+
+    <section id="about-jo">
+     <div class="jo-des">
+        <h2>Why should you visit Jordan?</h2>
+        <p> Jordan, an Arab country on the Jordan River's east bank, is distinguished by ancient monuments, nature reserves, and seaside resorts. It is the location of the famous archaeological site of Petra, the Nabatean capital from around 300 B.C.</p>
+        <br>
+        <p>Don't miss the amazing experience of floating in Jordan's Dead Sea, visiting Aqaba for diving in Jordan, Ajloun Castle, visiting Jerash, visiting Petra, and visiting Wadi Rum. These are just a few of the things you can do while in Jordan.</p>
+     </div>
+     <div class="jo-flag">
+        <img src="/images/jordan_map_one.png" alt="Jordan map">
+     </div>
+    </section>
+    
+
+    <section class="info">
+        <div class="layout">
+          <div>
+            <img src="/images/capital.png" alt="">
+            <h2> Capital </h2>
+            <h3>Amman</h3>
+          </div>
+          <div>
+            <img src="/images/location.png" alt="">
+            <h2> Area  </h2>
+            <h3>89.342 km2</h3>
+          </div>
+          <div>
+            <img src="/images/language.png" alt="">
+            <h2> Language </h2>
+            <h3>Arabic</h3>
+          </div>
+          <div>
+            <img src="/images/weather.png" alt="">
+            <h2> Weather </h2>
+            <h3> Usually subtropical arid </h3>
+          </div>
+          <div>
+            <img src="/images/religion.png" alt="">
+            <h2> Religion </h2>
+            <h3>92% Islam</h3>
+          </div>
+          <div>
+            <img src="/images/currency.png" alt="">
+            <h2> Currency </h2>
+            <h3> Jordanian Dinar (JD)</h3>
+          </div>
+          <div>
+            <img src="/images/population.png" alt="">
+            <h2> Population </h2>
+            <h3> 11.15 Million</h3>
+          </div>
+        </div>
+    </section>
+
+    <section id="jo-tours">
+        <h2> Jordan's Tours</h2>
+        <div class="filter">
+          <div class="name">
+            <h3>Search for Tour Name</h3>
+            <input oninput="searchTours()" id="nameInput" name="name" placeholder="Tour name ...">
+          </div>
+          <div class="date-filter">
+            <h3>Select Period of Dates</h3>
+            <label for="from">From:</label>
+            <input type="date" id="from">
+            <label for="to">To:</label>
+            <input type="date" id="to">
+            <button onclick="searchToursByDate()" id="seacrh"> Search </button>
+          </div>
+        </div>
+      
+
+        <div id="container" class="container"></div>
+
+    </section>
+
+
+
+ <!-- Footer -->
+ <footer class="footer-distributed">
+  <div class="footer-left">
+    <img src="/images/logo.png" alt="Logo">
+
+    <p class="footer-links">
+      <a href="/index/index.html"> Home</a>
+      |
+      <a href="./about.html"> About us</a>
+      |
+      <a href="/contact/contact.html"> Contact us</a>
+
+    </p>
+    <p class="footer-company-name"> Copyright © 2023 <strong> Al-Bosta</strong> All rights reserved </p>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa-solid fa-location-dot"></i>
+      <p> As Salt, Balqa, Jordan</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-phone"></i>
+      <p>009627758921755</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-envelope-circle-check"></i>
+      <p> albosta@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About the agency</span>
+      <span> Al-Bosta is a tourism agency focused on flourishing the travel to Jordan and Palestine, to share the rich culture, beautiful views, and give a breath of fresh air.</span>
+    </p>
+    <div class="footer-icon">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+
+    </div>
+  </div>
+</footer>
+
+
+    <script src="jordan.js"></script>
+</body>
