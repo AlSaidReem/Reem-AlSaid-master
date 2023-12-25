@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'EB Garamond', serif;
+ /* font-family: Pangea Display,Helvetica,Arial,sans-serif; */
+ scroll-behavior: smooth;
+ transition: .3s;
+
+}
+body {
+    width: 100vw;
+}
+
+header{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 150px;
+    transition: 0.5s ease;
+}
+header img{
+    width: 30%;
+    height: 100%;
+}
+.navigation{
+position: relative;
+
+}
+.navigation-items a{
+
+    position: relative;
+    color: #000; ;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+    color: #fff;
+}
+.navigation-items a::before{
+    content: "";
+    position: absolute;
+    background: #E60808 ;
+    width:0 ;
+    height: 2px;
+    bottom:0 ;
+    left: 0;
+    margin-top: 3px;
+}
+.navigation-items a:hover:before{
+   width: 100%;
+}
+
+header.scrolled{
+    background-color:#00000088;
+    padding:5px 150px;
+    
+}
+
+/* .container */
+.container {
+    background-image: linear-gradient(rgba(4, 9, 30, 0.485), rgba(4, 9, 30, 0.77)),url(/images/ripe-olives-on-branch-and-palest.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    padding-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100dvh;
+    justify-content: center;
+    filter: brightness(130%);
+}
+
+/* Card: */
+.card-container {
+    width: 500px;
+    max-width: 90%;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #ffffff3d; */
+}
+
+
+form {
+    width: 100%;
+}
+
+.card-container h1 {
+    color:#fff;
+    padding-bottom: 25px;
+    font-size: xx-large;
+}
+
+.form {
+    padding-bottom: 15px;
+    width: 95%;
+}
+
+.card-container input {
+    padding: 15px;
+    width: 100%;
+    font-size: medium;
+    font-weight: bold;
+    border: 1px solid #117920;
+}
+
+/* Errors msgs: */
+.Errors {
+    margin-top: 5px;
+    margin-left: 8px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+#name_error,
+#email_error,
+#create_error,
+#confirm_error,
+#phone_error{
+    font-size: 15px;
+    color: rgb(255 255 255);
+    background: #7b0606;
+}
+
+/* show and hide: */
+#show_password,
+#confirm_password {
+    position: absolute;
+    right: 13px;
+    top: 30px;
+    color: rgb(41, 38, 38);
+    transform: translateY(-70%);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 3px;
+}
+
+.create_pass,
+.confirm_pass {
+    width: 100%;
+    position: relative;
+}
+
+/* Bottom */
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button {
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 5px;
+    background-color:#ffffff;
+    color:#074310;
+    font-weight: Bold;
+    transition: all 0.5s;
+    font-size: 20px;
+    -webkit-transition: all 0.5s;
+}
+
+#button:hover {
+    background-color: #074310;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+    color: #fff;
+}
+#button:active {
+    background-color:#7b0606;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    color: #fff;
+    transform: scale(0.98);
+  }
+
+.bottom>a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: underline;
+    padding-top: 10px;
+}
+
+.bottom span {
+    color: #069d1d;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+@media (max-width:540px) {
+    .container {
+        height: 110vh;
+    }
+
+    .card-container {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:400px) {
+    .card-container {
+        margin-top: 10px;
+    }
+}
+/* media for header */
+@media (max-width:1040px) {
+    header{
+     padding: 12px 20px;
+    }
+    .navigation{
+    display: none;
+    }
+    header .navigation.active {
+     position: fixed;
+     width: 100%;
+     height: 100vh;
+     top: 0;
+     left: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: rgba(1, 1, 0,0.5);
+    }
+    .menu-btn{
+     background:url(/images/menu-btn.png)no-repeat;
+     background-size: 30px;
+     background-position: center;
+     width: 40px;
+     height: 40px;
+     cursor: pointer;
+     transition: 0.3s ease;
+    }
+    .menu-btn:active{
+     z-index: 999;
+     background: url(/images/close-icon-15.png) no-repeat;
+     background-size: 30px;
+     background-position: center;
+     transition: 0.3s ease;
+    }
+    .navigation-items a{
+     color: #222;
+     font-size: 1.2em;
+     margin: 20px;
+     }
+     .navigation.active .navigation-items{
+         background-color: #fff;
+         width: 600px;
+         max-width: 600px;
+         margin: 20px;
+         padding: 40px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         border-radius: 5px;
+         box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+     }
+     .navigation-items a::before{
+       background: #E60808 ;
+       height: 2px;
+         
+     }
+     .content h1{
+         font-size: 2em;
+     }
+     footer{
+         padding: 50px;
+     }
+            
+ }
