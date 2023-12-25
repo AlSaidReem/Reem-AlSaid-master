@@ -1,0 +1,904 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'EB Garamond', serif;
+ /* font-family: Pangea Display,Helvetica,Arial,sans-serif; */
+ scroll-behavior: smooth;
+ transition: .3s;
+
+}
+
+/* Header and navbar */
+
+header{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 150px ;
+    transition: 0.5s ease;
+}
+
+header img{
+    width: 30%;
+    height: 100%;
+}
+.navigation{
+position: relative;
+}
+
+.navigation-items a{
+    cursor: pointer;
+    position: relative;
+    color: #000; ;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+    color: #fff;
+}
+.navigation-items a::before{
+    content: "";
+    position: absolute;
+    background: #E60808 ;
+    width:0 ;
+    height: 2px;
+    bottom:0 ;
+    left: 0;
+    margin-top: 3px;
+    transition: width 0.3s ease;
+
+}
+.navigation-items a:hover:before{
+   width: 100%;
+}
+
+header.scrolled{
+    background-color:#00000088;
+    padding:5px 150px;
+    
+}
+#sigupp{
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Home section */
+.home{
+    padding: 100px;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #117920;
+}
+.home:before{
+   z-index:777;
+   content: '';
+   position: absolute;
+   background: rgba(3, 94, 251, 0.155);
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+}
+.home video{
+   z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.content{
+ z-index: 888;
+ color: #fff;
+ width: 70%;
+ margin-top: 50px;
+}
+
+.content h1{
+    font-size: 2.9em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+}
+.content span{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.content p{
+    margin-bottom: 70px;
+}
+.content a{
+    background: #fff;
+    padding: 15px 35px;
+    color: #E60808;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 200px;
+}
+.media-icons{
+ z-index: 888;
+position: absolute;
+right: 30px;
+display: flex;
+flex-direction: column;
+transition: 0.5s ease;
+}
+.media-icons a {
+ margin-bottom: 20px;
+ font-size: 2em;
+ color: #fff;
+ transition: 0.3s ease;
+}
+.media-icons a:hover{
+    transform: scale(1.3);
+    color: #E60808;
+}
+
+.slider-navigation{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+.slider-navigation .nav-btn{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255,255,255,0.5);
+    transition: 0.2s ease;
+    margin-right: 20px;
+}
+.nav-btn:hover{
+    transform: scale(1.2);
+}
+.nav-btn.active{
+    background: #E60808;
+}
+#qout{
+    font-size: x-large;
+}
+
+.video-slide{
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.video-slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+button {
+    padding: 5px 15px ;
+    border: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color:#ffffff;
+    color:#074310;
+    font-weight: Bold;
+    transition: all 0.5s;
+    font-size: 20px;
+    -webkit-transition: all 0.5s;
+  }
+  
+  button:hover {
+    background-color: #074310;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+    color: #fff;
+  }
+  
+  button:active {
+    background-color:#E60808;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    color: #fff;
+    transform: scale(0.98);
+    border: none;
+  }
+
+
+/* Destinations */
+#des {
+    padding: 70px 100px ;
+    width: 100%;
+    min-height: 70vh;
+    text-align: center;
+}
+
+#des h2 {
+    color: #000;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.wrapper {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3%;
+}
+
+.image {
+    width: 48%; 
+    max-height: 500px;
+    margin-bottom: 20px; 
+    transition: 0.7s ease;
+
+}
+
+.image a {
+    display: block;
+    text-decoration: none;
+    
+}
+.image:hover{
+    transform: scale(1.1);
+
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.image>a>h3{
+    margin-top: 40px;
+    font-size: xx-large;
+    color:#074310;
+}
+.image>a>h3:hover{
+    color:#E60808;
+}
+
+
+/* scroll animation */
+.reveal {
+    position: relative;
+    opacity: 0;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+  }
+  .active.fade-bottom {
+    animation: fade-bottom 1s ease-in;
+  }
+  .active.fade-left {
+    animation: fade-left 1s ease-in;
+  }
+  .active.fade-right {
+    animation: fade-right 1s ease-in;
+  }
+  @keyframes fade-bottom {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+/* scroll animation */
+/* scroll animation */
+/* scroll animation */
+
+
+/* about section  */
+.travel{
+    width: 100%;
+    min-height: 50vh;
+    /* background-color:#971b1ba2; */
+    padding: 50px 100px 50px 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.travel .layout {
+    width: 100%;
+  }
+.travel h2{
+    color:#074310;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.layout p{
+    font-size: 20px;
+    text-align: center;
+
+}
+/* icons section */
+.icons{
+    width: 100%;
+    min-height: 10vh;
+    /* background-color:#971b1bda; */
+    padding: 0px 50px 0px 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 5%;
+
+}
+.icons div{
+    gap: 8px;
+}
+.icons div i{
+    width: 100%;
+    font-size: 40px;
+    color: #000;
+}
+.icons div i:hover{
+    font-size: 50px;
+    color: #E60808;
+}
+/* weather */
+
+#weather{
+    padding: 90px 100px 50px 100px;
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url(/images/bg-imageee.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#weather h2{
+    color:#fff;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+#weather .container-weather{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    min-width:50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px);
+    min-height: 500px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    color: #fff;
+
+    
+}
+.search-box{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    }
+.search-box input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    outline: none;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: lowercase;
+    padding: 0 48px 0 42px;
+    border-radius: 10px;
+}
+.search-box input::placeholder{
+    color: #fff;
+    text-transform: capitalize;
+  
+}
+.search-box button{
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    padding:0 40px 0 5px ;
+    cursor: pointer;
+}
+.search-box i{
+    font-size: 28px;
+    position: absolute;
+    left: 10px;
+}
+.weather-box{
+    text-align: center;
+    margin: 40px 0;
+}
+.weather-box img {
+    width:40% ;
+    max-height: 200px;
+}
+.weather-box .temperature{
+    position: relative;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 600;
+    margin:20px 0 6px -30px ;
+}
+.weather-box .temperature span{
+    position: absolute;
+    font-size: 24px;
+    margin-left: 4px;
+}
+.weather-box .description{
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;}
+
+.weather-details{
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+.weather-details .humidity,
+.weather-details .wind{
+display: flex;
+align-items: center;
+width: 50%;
+}
+.weather-details i{
+    font-size: 56px;
+    margin-right: 10px;
+}
+.weather-details span{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+.weather-details p{
+    font-size: 14px;
+    font-weight: 500;
+}
+.weather-details .humidity{
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+.weather-details .wind{
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+.not-found{
+    position: absolute;
+    top: 0;
+    left:3;
+    width: 100%;
+ margin-top: 50px;
+ text-align: center;
+ visibility: hidden;
+}
+.not-found img{
+    width: 30%;
+}
+.not-found p{
+    font-size: 18px;
+    font-weight: 500;
+ 
+}
+
+
+/* // review section */
+.client_section {
+    padding: 50px 100px ;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.client_section h2 {
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #074310;
+  }
+
+  .rating label {
+    font-size: 35px;
+    color:#E60808;
+}
+.rating input {
+    display: none;
+}
+
+.container-review{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.container-review .review-card{
+    border: 2px solid #074310;
+    width: 22%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: larger;
+}
+.client_name h5{
+    font-size: larger;
+    color:#074310;
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 100px;
+    background-color: #074310;
+    color: #fff;
+    width: 100%;
+    font-size: larger;
+}
+.footer-distributed img{
+    width: 200px;
+    height: 100px;
+  }
+
+footer a {
+    font-size: 18px;
+    /* text-decoration: none ; */
+    color: #fff;
+    margin-bottom: 10px;
+}
+.footer-distributed .footer-left,
+ .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+/* Footer left */
+.footer-distributed .footer-left {
+    width: 30%;
+}
+
+/* Footer links */
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+   
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+   
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+.footer-distributed .footer-right {
+    width: 30%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.footer-distributed .footer-icon a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer-icon i{
+    margin-right: 25px;
+    font-size: 25px;
+}
+
+/* footer responsive */
+@media (max-width: 880px) {
+    .footer-distributed .footer-left,
+     .footer-distributed .footer-center, 
+     .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+    .footer-distributed {
+        padding: 0;
+    }
+}       
+
+/* media for #des */
+@media (max-width: 768px) {
+    .image {
+        width: 100%; 
+    }
+    #des{
+        padding: 2px;
+
+    }
+    .travel{
+    padding: 5px;}
+    .weather-details{
+        padding: 0;
+    }
+    #weather .container-weather i{
+        font-size: medium;
+    }
+    .client_section{
+        padding: 20px 0;
+    }
+    .container-review{
+        flex-direction: column;
+       
+    }
+    .container-review .review-card{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* weather responsive */
+@media (max-width: 768px) {
+    #weather {
+        padding: 60px;
+    }
+
+    #weather .container-weather {
+        width: 80%;
+    }
+    
+    .search-box input {
+        padding: 0 30px 0 10px;
+        font-size: 18px;
+    }
+
+    .search-box button {
+        padding: 0 20px 0 5px;
+        font-size: 16px;
+    }
+
+    .weather-box {
+        margin: 20px 0;
+    }
+
+    .weather-box img {
+        width: 60%;
+        max-height: 150px;
+    }
+
+    .weather-box .temperature {
+        font-size: 36px;
+        margin: 10px 0 6px -15px;
+    }
+
+    .weather-details span,
+    .weather-details p {
+        font-size: 12px;
+    }
+
+    .not-found img {
+        width: 50%;
+    }
+
+    .not-found p {
+        font-size: 16px;
+    }
+}
+/* media for header, weather and footer */
+@media (max-width:1055px) {
+   header{
+    padding: 12px 20px;
+   }
+
+   .home{
+    padding:100px 20px; 
+   }
+
+   .media-icons{
+    right: 15px;
+   }
+
+   .navigation{
+   display: none;
+   }
+   header .navigation.active {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1, 1, 0,0.5);
+   }
+   .menu-btn{
+    background:url(/images/menu-btn.png)no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+    transition: 0.3s ease;
+   }
+   /* .menu-btn:active{ */
+    /* z-index: 999; */
+    /* background: url(/images/close-icon-15.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    z-index: 1;
+    transition: 0.3s ease; */
+   /* } */
+   .navigation-items a{
+    color: #fff;
+    font-size: 1.2em;
+    margin: 20px;
+    }
+    .navigation.active .navigation-items{
+        background-color: #074310;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+    }
+    .navigation-items a::before{
+      background: #E60808 ;
+      height: 2px;
+    }
+    header.scrolled {
+        padding: 5px;
+    }
+    .content h1{
+        font-size: 2em;
+    }
+    #weather{
+        padding: 60px;
+    }
+    .container-weather{
+        width: 80%;
+    }
+    .icons{
+       
+        flex-wrap: wrap;
+    }
+           
+}
+
+
+@media (max-width:333px){
+    .content h1{
+        font-size: 1em;
+    }
+}

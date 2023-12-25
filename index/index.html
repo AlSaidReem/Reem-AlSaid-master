@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title> Al Bosta | Tourism Agency</title>
+     <!-- style sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- icon link  -->
+    <link rel="icon" href="/images/logo.png">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html"  id="homeNav"><img src="/images/logo.png" alt=" Al Bosta Logo"></a>
+        <div class="menu-btn">
+            
+        </div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#home"> Home </a>
+                <a href="/about/about.html"> About us </a>
+                <a href="#des"> Destinations </a>
+                <a href="/contact/contact.html"> Contact us </a>
+                <a id="sigupp"> Sign Up </a>
+                <button id="loginn">Login </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Home - videos -->
+    <section id="home" class="home">
+        <video class="video-slide active" src="/video/Palestine_two - Made with Clipchamp.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/video/Jordan_1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/video/Palestine_1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/video/Jordan_2.mp4" autoplay muted loop></video>
+
+        <div class="content">
+            <h1> To travel <br><span> To live </span></h1>
+            <p id="qout">“Traveling  is leaves you speechless. Then it turns you to a storyteller”</p>
+            <!-- <button id="signUp" onclick="signPage()"> Sign Up </button> -->
+        </div>
+        
+        <div class="media-icons">
+            <a href="https://www.facebook.com/people/Al-Bosta-Tourism-Agency/61554594645092/?mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/albo_sta/?igsh=OHRlM3NwMG1ybm44"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+
+        </div>
+    </section>
+    
+    <!-- Destinations -->
+  <section id="des">
+    <h2>Our Destinations</h2>
+    <div class="wrapper ">
+        <div class="image reveal fade-left">
+            <a href="/jordan/jordan.html">
+                <img src="/images/jordan.jpg" alt="Jordan">
+                <h3>Jordan</h3>
+            </a>
+        </div>
+        <div class="image reveal fade-right">
+            <a href="/palestine/palestine.html">
+                <img src="/images/a_1.png" alt="Palestine">
+                <h3>Palestine</h3>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+  <div><i class="fa-solid fa-bus"></i></div>
+  <div><i class="fa-solid fa-plane-arrival"></i></div>
+  <div><i class="fa-solid fa-earth-americas"></i></div>
+  <div><i class="fa-solid fa-car"></i></div>
+  <div><i class="fa-solid fa-train-tram"></i></div>
+  <div><i class="fa-solid fa-helicopter"></i></div>
+</section>
+
+<section class="travel">
+  <h2> Why we should Travel ? </h2>
+  <div class="layout">
+    <div>
+    <p> Traveling offers a myriad of enriching experiences
+    that go beyond mere exploration of new destinations. 
+    It is a powerful catalyst for personal growth, fostering a 
+    deeper understanding of diverse cultures, traditions, and perspectives.
+    Stepping outside one's comfort zone, whether by navigating unfamiliar 
+    streets or immersing oneself in a foreign culture, encourages adaptability 
+    and resilience. Travel provides opportunities to break away from routine,
+    sparking creativity and broadening one's worldview. The exposure to different
+    ways of life enhances empathy and tolerance, contributing to a more interconnected
+    global community. Additionally, travel offers moments of awe and inspiration as one
+    encounters natural wonders, historical landmarks, and vibrant communities. Ultimately,
+    the journey itself becomes a tapestry of memories and lessons, shaping individuals 
+    into more open-minded, knowledgeable, and well-rounded individuals.</p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- weather section -->
+    <section id="weather">
+    <h2> Check the Weather </h2>
+
+      <div class="container-weather">
+        <div class="search-box">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" placeholder="enter location">
+          <button class="fa-solid fa-magnifying-glass"></button>
+        </div>
+
+        <div class="one">
+         <div class="weather-box">
+          <div class="box">
+            <div class="info-weather">
+              <div class="weather">
+                <img src="/images/cloud.png" alt="cloudy weather">
+                <p class="temperature"> 0 <span>°C</span></p>
+                <p class="description">Broken Clouds</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="weather-details">
+          <div class="humidity">
+            <i class="fa-solid fa-water"></i>
+            <div class="text">
+              <div class="info-humidity">
+                <span>0%</span>
+              </div>
+              <p>Humidity</p>
+            </div>
+          </div>
+
+          <div class="wind">
+            <i class="fa-solid fa-wind"></i>
+            <div class="text">
+              <div class="info-wind">
+                <span>0 km/h</span>
+              </div>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-found">
+        <div class="box">
+          <img src="/images/not-found-city.png" alt="Not found location">
+          <p>Oops ! Location not found!</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- reivew section -->
+ <section class="client_section">
+  <h2>Our loving Travelers </h2>
+  <div class="container-review">
+      
+  </div>
+</section>
+
+ <!-- Footer -->
+    <footer class="footer-distributed">
+      <div class="footer-left">
+        <img src="/images/logo.png" alt="Logo">
+
+        <p class="footer-links">
+          <a href="/index/index.html"> Home</a>
+          |
+          <a href="./about.html"> About us</a>
+          |
+          <a href="/contact/contact.html"> Contact us</a>
+
+        </p>
+        <p class="footer-company-name"> Copyright © 2023 <strong> Al-Bosta</strong> All rights reserved </p>
+      </div>
+
+      <div class="footer-center">
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p> As Salt, Balqa, Jordan</p>
+        </div>
+        <div class="location">
+          <i class="fa-solid fa-phone"></i>
+          <p>009627758921755</p>
+        </div>
+        <div class="location">
+          <i class="fa-solid fa-envelope-circle-check"></i>
+          <p> albosta@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>About the agency</span>
+          <span> Al-Bosta is a tourism agency focused on flourishing the travel to Jordan and Palestine, to share the rich culture, beautiful views, and give a breath of fresh air.</span>
+        </p>
+        <div class="footer-icon">
+          <a href="https://www.facebook.com/people/Al-Bosta-Tourism-Agency/61554594645092/?mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/albo_sta/?igsh=OHRlM3NwMG1ybm44"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+
+        </div>
+      </div>
+    </footer>
+        
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
