@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'EB Garamond', serif;
+ /* font-family: Pangea Display,Helvetica,Arial,sans-serif; */
+ scroll-behavior: smooth;
+ transition: .3s;
+
+}
+
+/* Header and navbar */
+header{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px 150px;
+    transition: 0.5s ease;
+}
+header img{
+    width: 30%;
+    height: 100%;
+}
+.navigation{
+position: relative;
+
+}
+.navigation-items a{
+    cursor: pointer;
+    position: relative;
+    color: #000; ;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+    color: #fff;
+}
+.navigation-items a::before{
+    content: "";
+    position: absolute;
+    background: #E60808 ;
+    width:0 ;
+    height: 2px;
+    bottom:0 ;
+    left: 0;
+    margin-top: 3px;
+    transition: width 0.3s ease;
+}
+.navigation-items a:hover:before{
+   width: 100%;
+}
+
+header.scrolled{
+    background-color:#00000088;
+    padding:5px 150px;
+    
+}
+
+#loginn {
+    padding: 5px 15px ;
+    border: 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color:#ffffff;
+    color:#074310;
+    font-weight: Bold;
+    transition: all 0.5s;
+    font-size: 20px;
+    -webkit-transition: all 0.5s;
+  }
+  
+  #loginn:hover {
+    background-color: #074310;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+    color: #fff;
+  }
+  
+  #loginn:active {
+    background-color:#E60808;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    color: #fff;
+    transform: scale(0.98);
+  }
+
+.navigation-items #drop:hover + .drop-down,
+.drop-down:hover {
+    display: block;
+}
+
+
+.drop-down li {
+    display: block;
+ 
+}
+.drop-down li a {
+    color: #000;
+    margin-left: 0px;
+    padding: 10px 25px;
+    /* width: 100px; */
+
+}
+
+.drop-down {
+    
+    position: fixed;
+    top: 90%;
+    left: 34%;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+    z-index: 99999;
+}
+
+.drop-down a {
+    padding: 10px;
+    text-decoration: none;
+    color: #000; 
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.drop-down a:hover {
+    background-color: #f1f1f1; 
+    z-index: 9999;
+}
+header.scrolled .drop-down {
+    top: 30px; /* Adjust the value based on your layout */
+}
+.home{
+    width: 100%;
+    min-height: 90vh;
+    background-image: url(/images/bosta_1\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    padding-left: 50px;
+}
+.about{
+    min-height: 20vh;
+    width: 100%;
+    padding: 40px 100px 0px 100px;
+    text-align: center;
+}
+.about h2{
+    color:#074310;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.about h4 {
+    text-align: left;
+}
+.bosta{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 100px 50px 100px;
+}
+.bosta h2{
+    color:#074310;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.bosta-info{
+    width: 100%;
+    display: flex;
+}
+.bosta-info div{
+    width: 50%;
+}
+.bosta-info img {
+    width: 100%;
+    height: 100%;
+}
+.info {
+    padding: 0px 40px;
+    font-size: larger;
+    text-align: left;
+}
+.info span{
+    font-size: x-large;
+    font-weight: bolder;
+    color: #E60808;
+
+}
+
+/* footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 100px;
+    background-color: #074310;
+    color: #fff;
+    width: 100%;
+    font-size: larger;
+}
+.footer-distributed img{
+    width: 200px;
+    height: 100px;
+  }
+
+footer a {
+    font-size: 18px;
+    /* text-decoration: none ; */
+    color: #fff;
+    margin-bottom: 10px;
+}
+.footer-distributed .footer-left,
+ .footer-distributed .footer-center,
+  .footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+/* Footer left */
+.footer-distributed .footer-left {
+    width: 30%;
+}
+
+/* Footer links */
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+}
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+   
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+   
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-right {
+    width: 30%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+.footer-distributed .footer-icon a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+.footer-icon i{
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+
+
+
+/* footer responsive */
+@media (max-width: 880px) {
+    .footer-distributed .footer-left,
+     .footer-distributed .footer-center, 
+     .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+    .footer-distributed {
+        padding: 0;
+    }
+    .bosta{
+        padding: 10px;
+    }
+    .about{
+        padding: 10px;
+    }
+  
+}       
+
+/* bosta dive responisve */
+@media (max-width:1300px) {
+    .bosta-info{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .bosta-info div{
+        width: 100%;
+    }
+}
+
+
+@media (max-width:1055px) {
+    header{
+     padding: 12px 20px;
+    }
+ 
+    .home{
+     padding:100px 20px; 
+    }
+ 
+    .media-icons{
+     right: 15px;
+    }
+ 
+    .navigation{
+    display: none;
+    }
+    header .navigation.active {
+     position: fixed;
+     width: 100%;
+     height: 100vh;
+     top: 0;
+     left: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: rgba(1, 1, 0,0.5);
+    }
+    .menu-btn{
+     background:url(/images/menu-btn.png)no-repeat;
+     background-size: 30px;
+     background-position: center;
+     width: 40px;
+     height: 40px;
+     cursor: pointer;
+     z-index: 1;
+     transition: 0.3s ease;
+    }
+ 
+    .navigation-items a{
+     color: #fff;
+     font-size: 1.2em;
+     margin: 20px;
+     }
+     .navigation.active .navigation-items{
+         background-color: #074310;
+         width: 600px;
+         max-width: 600px;
+         margin: 20px;
+         padding: 40px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         border-radius: 5px;
+         box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+     }
+     .navigation-items a::before{
+       background: #E60808 ;
+       height: 2px;
+     }
+     header.scrolled {
+         padding: 5px;
+     }
+     .drop-down{
+       margin-top: 250px;
+       margin-left: 115px;
+       padding: 0;
+
+     }
+    }
