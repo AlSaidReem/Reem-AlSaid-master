@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title> Tour Guide | Dashboard</title>
+        <!-- icon link  -->
+      <link rel="icon" href="/images/logo.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/dashboard/css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="/dashboard/css/custom.css">
+    <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+      <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      #show_password{
+        position: absolute;
+        top: 62.5%;
+        left: 70%;
+      }
+     </style>
+  </head>
+<body>
+  
+<div class="wrapper">
+
+
+    <div class="body-overlay"></div>
+    
+    <!-------------------------sidebar------------>
+         <!-- Sidebar  -->
+         <nav id="sidebar">
+          <div class="sidebar-header">
+              <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+          </div>
+          <ul class="list-unstyled components">
+              <li  class="">
+                  <a href="./guideHome.html" class="dashboard"><i class="material-icons">dashboard</i>
+                  <span> Home </span></a>
+              </li>
+              <li  class="active">
+                <a href="./users.html" class="dashboard"><i class="material-icons">dashboard</i>
+                  <span>Users</span></a>
+              </li>
+              <li  class="">
+                  <a href="./guideProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+                  <span> Profile</span></a>
+              </li>
+             
+          </ul>
+      </nav>
+    
+    
+    <div id="content">
+       
+  <div class="top-navbar">
+    <div class="xp-topbar">
+
+          <!-- Start XP Row -->
+          <div class="row"> 
+              <!-- Start XP Col -->
+              <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                  <div class="xp-menubar">
+                         <span class="material-icons text-white">signal_cellular_alt
+           </span>
+                   </div>
+              </div> 
+              <!-- End XP Col -->
+<!-- Start XP Col -->
+<div class="col-md-5 col-lg-3 order-3 order-md-2">
+<div class="xp-searchbar">
+  
+</div>
+</div>
+<!-- End XP Col -->
+
+
+<div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+<button id="LOG">Logout</button>
+</div>
+          </div> 
+          <!-- End XP Row -->
+
+      </div>
+   <div class="xp-breadcrumbbar text-center">
+          <h4 class="page-title">Tour Guide Dashboard</h4>  
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Add New User </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>                
+      </div>
+
+ </div>
+       
+       
+       
+       <!--------main-content------------->
+       
+       <div class="main-content">
+          <div class="row">
+            <div class="container">
+                <form id="userForm">
+                  <h2>Add New User </h2>
+                  <label>Username:</label>
+                  <input type="text" id="username" placeholder="Enter Username">
+            
+                  <label >Email:</label>
+                  <input type="email" id="email" placeholder="Enter Email Address">
+
+                  <label>Password:</label>
+                  <input type="password" id="password"placeholder="Enter Password">
+                  <i class="fa-regular fa-eye-slash" class="show-password" id="show_password"></i>
+                  <span>"Please enter at least 8 characters with a number, symbol, lowercase, and uppercase letters!"</span>
+            
+                  <label>Phone Number:</label>
+                  <input type="number" id="phone_number"  placeholder="Enter Phone number">
+                  <span>"Please Enter Phone number with 10 numbers start with 077!"</span>
+                  
+                  <div>
+                  <button class="btn-form"   type="submit">Add</button>
+                  <button class="btn-form" type="button" onclick="cancel()">Cancel</button>
+                  </div>
+
+                </form>
+              </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+<script>
+
+document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let username = document.getElementById('username').value;
+    let emailInput = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    let phone_number = document.getElementById('phone_number').value;
+
+ 
+    if (!username || !emailInput || !password || !phone_number) {
+        alert('Please fill in all fields');
+        return; 
+    }
+
+    const url = 'http://localhost/tourism/t_api/userinsert.php';
+    const data = {
+        username: username,
+        password: password,
+        email: emailInput,
+        phone_number: phone_number,
+        role: 'users',
+
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+      
+        alert('User added successfully!');
+        console.log('POST request successful:', responseData);
+        window.location.href = "./users.html";
+    })
+    .catch(error => {
+        console.error('Error making POST request:', error);
+    });
+});
+
+// show password eye
+let showPass = document.getElementById("show_password");
+let passwordField = document.getElementById("password");
+showPass.addEventListener('click', function () {
+    if (passwordField.type === "password") {
+        showPass.classList.replace("fa-eye-slash", "fa-eye");
+        return (passwordField.type = "text");
+    }
+    else {
+        showPass.classList.replace("fa-eye", "fa-eye-slash")
+        passwordField.type = "password"
+    }
+})
+
+/// Cancel button:
+function cancel(){
+  window.history.back();
+
+}
+
+
+</script>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/dashboard/js/popper.min.js"></script>
+    <script src="/dashboard/js/bootstrap.min.js"></script>
+    <script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".xp-menubar").on('click',function(){
+              $('#sidebar').toggleClass('active');
+              $('#content').toggleClass('active');
+            });
+            
+             $(".xp-menubar,.body-overlay").on('click',function(){
+               $('#sidebar,.body-overlay').toggleClass('show-nav');
+             });
+            
+          });
+    </script>
+
+</body>
+

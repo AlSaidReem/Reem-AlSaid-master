@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title> Edit Tour | Dashboard</title>
+        <!-- icon link  -->
+      <link rel="icon" href="/images/logo.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/dashboard/css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="/dashboard/css/custom.css">
+    <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+      <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      textarea{
+        height: 120px;
+        padding: 5px 10px;
+      }
+      select{
+        height: 30px;
+      }
+     </style>
+  </head>
+<body>
+      
+<div class="wrapper">
+
+
+    <div class="body-overlay"></div>
+    
+    <!-------------------------sidebar------------>
+         <!-- Sidebar  -->
+     <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+      </div>
+      <ul class="list-unstyled components">
+          <li  class="">
+              <a href="/dashboard/home.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Home </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/des/destinations.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Destinations</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/user/guids.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Tour guids </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/user/User.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Users</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/jordanTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Jordan Tours</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/palestineTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Palestine Tours</span></a>
+          </li>
+          <li  class="">
+            <a href="/dashboard/booking.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Booking </span></a>
+        </li>
+          <li  class="">
+            <a href="/dashboard/adminProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Admin Profile</span></a>
+        </li>
+         
+      </ul>
+
+     
+  </nav>
+  <div id="content">
+  <div class="top-navbar">
+    <div class="xp-topbar">
+
+          <!-- Start XP Row -->
+          <div class="row"> 
+              <!-- Start XP Col -->
+              <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                  <div class="xp-menubar">
+                         <span class="material-icons text-white">signal_cellular_alt
+           </span>
+                   </div>
+              </div> 
+              <!-- End XP Col -->
+<!-- Start XP Col -->
+<div class="col-md-5 col-lg-3 order-3 order-md-2">
+<div class="xp-searchbar">
+  
+</div>
+</div>
+<!-- End XP Col -->
+
+
+<div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+<button id="LOG">Logout</button>
+</div>
+          </div> 
+          <!-- End XP Row -->
+
+      </div>
+   <div class="xp-breadcrumbbar text-center">
+          <h4 class="page-title">Admin Dashboard</h4>  
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Edit Tour </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>                
+      </div>
+
+ </div>
+ <div class="main-content">
+    <div class="row">
+        <div class="container">
+            <form id="tourForm">
+                <h2> Edit Tour</h2>
+                <label>Tour name:</label>
+                <input type="text" id="name" placeholder="Enter Tour name">
+          
+                <label for="images">Image :</label>
+                <input type="file" name="images[]" multiple accept="image/*" id="images" placeholder="Select Image(s)">
+                
+                <label>Date:</label>
+                <input type="date" name="date" id="date"placeholder="Enter Date">
+          
+                <label>Description:</label>
+                <textarea type="text" name="description" id="description"  placeholder="Enter Description"></textarea>
+
+                <label>Price:</label>
+                <input type="number" name="price" id="price"  placeholder="Enter price number">
+
+                <label> Destination ID: </label>
+                <input type="number" name="destination_id" id="destination_id"  placeholder=" 1: Jordan , 2:Palestine">
+
+                <label>Seats number:</label>
+                <input type="number"  name="seats" id="seats"  placeholder="Enter Seats number">
+                
+                <label for="tour_guide_id">Tour Guide Name:</label>
+                <select value="tour_guide_username" id="tour_guide_id"></select>
+
+                <div>
+                <button class="btn-form"  type="submit"> Update </button>
+                <button class="btn-form" type="button" onclick="cancel()">Cancel</button>
+                </div>
+
+              </form>
+        </div>
+
+    </div>
+ </div>
+</div>
+</div>
+
+<script>
+
+/// Logout button:
+  let logoutButtonNav = document.getElementById('LOG');
+  const isloggedin = sessionStorage.getItem("isLoggedIn");
+  if (isloggedin == 'true') {
+    logoutButtonNav.addEventListener('click', (e) => {
+      window.location.href = '/index/index.html';
+      sessionStorage.clear();
+    });
+  }
+
+/// Cancel button:
+function cancel(){
+    window.history.back();
+}
+
+// Read:
+function readTour() {
+  const id = window.location.hash.substring(1);
+
+  fetch(`http://localhost/tourism/t_api/tourread.php?id=${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(responseData => {
+    document.getElementById('name').value = responseData.name;
+    document.getElementById('date').value = responseData.date;
+    document.getElementById('destination_id').value = responseData.destination_id;
+    document.getElementById('description').value = responseData.description;
+    document.getElementById('price').value = responseData.price;
+    document.getElementById('seats').value = responseData.seats;
+    
+    //  tour_guide_id dropdown
+    document.getElementById('tour_guide_id').value = responseData.tour_guide_id;
+
+    let select = document.getElementById('tour_guide_id');
+    fetch('http://localhost/tourism/t_api/userread.php?role=tour%20guide')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(guideName => {
+          var option = document.createElement("option");
+          option.value = guideName.id;
+          option.innerHTML = guideName.username;
+          select.appendChild(option);
+        });
+
+        // To select the tour guide options from database
+        select.value = responseData.tour_guide_id || '';
+      })
+      .catch(error => console.error('Error fetching tour guide data:', error));
+  })
+  .catch(error => {
+    console.error('Error making GET request:', error);
+  });
+}
+
+readTour();
+
+document.getElementById('tourForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const id = window.location.hash.substring(1);
+    let name = document.getElementById('name').value;
+    let date = document.getElementById('date').value;
+    let destination_id = document.getElementById('destination_id').value;
+    let description = document.getElementById('description').value;
+    let price = document.getElementById('price').value;
+    let seats = document.getElementById('seats').value;
+    let tour_guide_id = document.getElementById('tour_guide_id').value;
+
+    // Create an object with the data
+    const requestData = {
+        id: id,
+        name: name,
+        description: description,
+        destination_id: destination_id,
+        date: date,
+        price: price,
+        seats: seats,
+        tour_guide_id: tour_guide_id
+    };
+
+    fetch(`http://localhost/tourism/t_api/update_tour.php`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify(requestData), // to convert data to json
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        alert('Tour data updated successfully!');
+        console.log(responseData);
+      
+        
+    })
+    .catch(error => {
+        console.error('Error making PUT request:', error);
+    });
+});
+</script>
+<script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/dashboard/js/popper.min.js"></script>
+<script src="/dashboard/js/bootstrap.min.js"></script>
+<script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".xp-menubar").on('click',function(){
+          $('#sidebar').toggleClass('active');
+          $('#content').toggleClass('active');
+        });
+        
+         $(".xp-menubar,.body-overlay").on('click',function(){
+           $('#sidebar,.body-overlay').toggleClass('show-nav');
+         });
+        
+      });
+</script>
+</body>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <title> Booking Table</title>
+            <!-- icon link  -->
+          <link rel="icon" href="/images/logo.png">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="css/bootstrap.min.css">
+            <!----css3---->
+            <link rel="stylesheet" href="css/custom.css">
+        <!--google material icon-->
+          <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+     </head>
+  <body>
+  
+
+<div class="wrapper">
+
+
+        <div class="body-overlay"></div>
+		
+		<!-------------------------sidebar------------>
+		     <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li  class="">
+                        <a href="./home.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Home </span></a>
+                    </li>
+                    <li  class="">
+                        <a href="/dashboard/des/destinations.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Destinations</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="/dashboard/user/guids.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Tour guids </span></a>
+                    </li>
+                    <li  class="">
+                        <a href="/dashboard/user/User.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Users</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="/dashboard/tours/jordanTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Jordan Tours</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="/dashboard/tours/palestineTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Palestine Tours</span></a>
+                    </li>
+                    <li  class="active">
+                        <a href="./booking.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Booking </span></a>
+                    </li>
+                    <li  class="">
+                        <a href="./adminProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Admin Profile</span></a>
+                    </li>
+                   
+                </ul>
+            </nav>
+	
+		<!--------page-content---------------->
+		
+		<div id="content">
+            <div class="top-navbar">
+                <div class="xp-topbar">
+        
+                      <!-- Start XP Row -->
+                      <div class="row"> 
+                          <!-- Start XP Col -->
+                          <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                              <div class="xp-menubar">
+                                     <span class="material-icons text-white">signal_cellular_alt
+                       </span>
+                               </div>
+                          </div> 
+                          <!-- End XP Col -->
+         <!-- Start XP Col -->
+         <div class="col-md-5 col-lg-3 order-3 order-md-2">
+          <div class="xp-searchbar">
+              
+          </div>
+        </div>
+        <!-- End XP Col -->
+        
+        
+        <div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+        <button id="LOG">Logout</button>
+        </div>
+                      </div> 
+                      <!-- End XP Row -->
+        
+                  </div>
+               <div class="xp-breadcrumbbar text-center">
+                      <h4 class="page-title">Admin Dashboard</h4>  
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#"> Booking </a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>                
+                  </div>
+            
+             </div>
+             <div class="main-content">
+              <div class="col-md-12">
+                <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-center">
+                      <h2 class="ml-lg-2">Booking Managment</h2>
+                    </div>
+
+                  </div>
+                </div>
+                
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Booking ID</th>
+                      <th>User ID </th>
+                      <th>Username </th>
+                      <th>Tour ID </th>
+                      <th>Tour Name </th>
+                      <th>Booking Date </th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="data-container"></tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+
+        </div>
+</div>
+<script>
+
+  // Logout button
+  let logoutButtonNav = document.getElementById('LOG');
+  
+  const isloggedin = sessionStorage.getItem("isLoggedIn");
+  if (isloggedin == 'true') {
+    logoutButtonNav.addEventListener('click', (e) => {
+      window.location.href = '/index/index.html';
+      sessionStorage.clear();
+    });
+  }
+
+
+    // read get all bookings:
+    fetch(`http://localhost/tourism/t_api/show_booking.php`)
+
+    .then(response => {
+    if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json();
+})
+.then(data => {
+  console.log(data);
+  displayData(data);
+})
+.catch(error => {
+  console.error('Fetch error:', error);
+});
+
+  // read tour:
+  function displayData(data) {
+ 	const dataContainer = document.getElementById('data-container');
+
+	for (let i = 0; i < data.length; i++) {
+	const itemElement = document.createElement('tr');
+			itemElement.innerHTML = `
+						<td>${[i + 1]}</td>
+						<td>${data[i].id}</td>
+						<td>${data[i].user_id}</td>
+						<td>${data[i].username}</td>
+						<td>${data[i].tour_id}</td>
+						<td>${data[i].tour_name}</td>
+						<td>${data[i].booking_date}</td>
+						<td>
+						<button onclick="deleteBook(${data[i].id})">
+			         <i class="material-icons text-danger">&#xE872;</i></button>					
+						</td>`;
+				dataContainer.appendChild(itemElement);
+			}
+		}
+
+    //delete book depend on booking id:
+// Delete booking:
+function deleteBook(id) {
+    // Display a confirmation dialog
+    if (confirm("Are you sure you want to delete this booking?")) {
+        // User clicked "OK," proceed with the deletion
+        fetch(`http://localhost/tourism/t_api/delete_booking.php?id=${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Booking deleted:', data);
+                alert(`Booking deleted successfully!`);
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    } else {
+        // User clicked "Cancel," do nothing
+        console.log('Booking deletion canceled.');
+    }
+}
+
+
+  </script>
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="js/jquery-3.3.1.slim.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery-3.3.1.min.js"></script>
+  
+  
+  <script type="text/javascript">
+        
+		$(document).ready(function(){
+		  $(".xp-menubar").on('click',function(){
+		    $('#sidebar').toggleClass('active');
+			$('#content').toggleClass('active');
+		  });
+		  
+		   $(".xp-menubar,.body-overlay").on('click',function(){
+		     $('#sidebar,.body-overlay').toggleClass('show-nav');
+		   });
+		  
+		});
+		
+</script>
+
+  
+  
+
+
+
+  </body>
+  
+  </html>
+
+

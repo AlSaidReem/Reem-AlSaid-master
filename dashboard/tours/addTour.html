@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title> Add Tour | Dashboard</title>
+        <!-- icon link  -->
+      <link rel="icon" href="/images/logo.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/dashboard/css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="/dashboard/css/custom.css">
+    <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+      <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ <style>
+  textarea{
+    height: 120px;
+    padding: 5px 10px;
+  }
+  select{
+    height: 30px;
+  }
+ </style>
+  </head>
+<body>
+  
+<div class="wrapper">
+
+
+    <div class="body-overlay"></div>
+    
+    <!-------------------------sidebar------------>
+         <!-- Sidebar  -->
+     <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+      </div>
+      <ul class="list-unstyled components">
+          <li  class="">
+              <a href="/dashboard/home.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Home </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/des/destinations.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Destinations</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/user/guids.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Tour guids </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/user/User.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Users</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/jordanTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Jordan Tours</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/palestineTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Palestine Tours</span></a>
+          </li>
+          <li  class="">
+            <a href="/dashboard/booking.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Booking </span></a>
+        </li>
+          <li  class="">
+            <a href="/dashboard/adminProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Admin Profile</span></a>
+        </li>
+         
+      </ul>
+
+     
+  </nav>
+    
+    
+    <div id="content">
+       
+  <div class="top-navbar">
+    <div class="xp-topbar">
+
+          <!-- Start XP Row -->
+          <div class="row"> 
+              <!-- Start XP Col -->
+              <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                  <div class="xp-menubar">
+                         <span class="material-icons text-white">signal_cellular_alt
+           </span>
+                   </div>
+              </div> 
+              <!-- End XP Col -->
+<!-- Start XP Col -->
+<div class="col-md-5 col-lg-3 order-3 order-md-2">
+<div class="xp-searchbar">
+  
+</div>
+</div>
+<!-- End XP Col -->
+
+
+<div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+<button id="LOG">Logout</button>
+</div>
+          </div> 
+          <!-- End XP Row -->
+
+      </div>
+   <div class="xp-breadcrumbbar text-center">
+          <h4 class="page-title"> Admin Dashboard</h4>  
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Add New Tour </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>                
+      </div>
+
+ </div>
+       
+       
+       
+       <!--------main-content------------->
+       
+       <div class="main-content">
+          <div class="row">
+            <div class="container">
+                <form id="userForm" enctype="multipart/form-data">
+                  <h2>Add Tour</h2>
+                  <label for="name">Tour name:</label>
+                  <input type="text" id="name" placeholder="Enter Tour name" autocomplete="off">
+            
+                  <label for="images">Image :</label>
+                  <input type="file" name="images[]" multiple accept="image/*" id="images" placeholder="Select Image(s)">
+
+                  <label for="date">Date:</label>
+                  <input type="date" id="date"placeholder="Enter Date">
+            
+                  <label for="description">Description:</label>
+                  <textarea type="text" id="description"  placeholder="Enter Description"></textarea>
+
+                  <label for="price">Price:</label>
+                  <input type="number" id="price"  placeholder="Enter price number">
+
+                  <label for="destination_id"> Destination ID: </label>
+                  <input type="number" id="destination_id"  placeholder=" 1: Jordan , 2:Palestine">
+
+                  <label for="seats">Seats number:</label>
+                  <input type="number" id="seats"  placeholder="Enter Seats number">
+
+                  <label for="tour_guide_id"> Tour guide Name:</label>
+                  <select name="" id="tour_guide_id"></select>
+                  <!-- <input type="text" id="tour_guide_id"  placeholder="Enter Tour guide ID number"> -->
+
+                  <div>
+                  <button class="btn-form"  type="submit">Add</button>
+                  <button class="btn-form" type="button" onclick="cancel()">Cancel</button>
+                  </div>
+
+                </form>
+              </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+<script>
+     /// Logout button:
+  let logoutButtonNav = document.getElementById('LOG');
+  const isloggedin = sessionStorage.getItem("isLoggedIn");
+  if (isloggedin == 'true') {
+    logoutButtonNav.addEventListener('click', (e) => {
+      window.location.href = '/index/index.html';
+      sessionStorage.clear();
+    });
+  }
+
+/// select tour guide name:
+let select = document.getElementById('tour_guide_id');
+fetch('http://localhost/tourism/t_api/userread.php?role=tour%20guide')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        console.log(data[0].username);
+
+        // forech to insert all tour guides name depend on id using innerHTML
+        data.forEach(guideName => {
+            var option = document.createElement("option");
+            option.value = guideName.id;
+            option.innerHTML = guideName.username;
+            select.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Error fetching locations data:', error));
+
+
+
+// add tour
+document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let nameInput = document.getElementById('name').value;
+    let dateInput = document.getElementById('date').value;
+    let destinationInput = document.getElementById('destination_id').value;
+    let descriptionInput = document.getElementById('description').value;
+    let priceInput = document.getElementById('price').value;
+    let seatsInput = document.getElementById('seats').value;
+    let tourGuide = document.getElementById('tour_guide_id').value;
+    // console.log(tourGuide)
+
+    
+
+    if (!nameInput || !dateInput || !descriptionInput || !priceInput || !seatsInput || !tourGuide) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+      // validate date to choice from current data
+    let currentDate = new Date();
+    let selectedDate = new Date(dateInput);
+
+    if (selectedDate < currentDate) {
+        alert('Please select a date that is not before the current date');
+        return;
+    }
+
+    let imageInput = document.getElementById('images').files;
+
+    // to sent the data as a form
+    const formData = new FormData();
+    formData.append('name', nameInput);
+    formData.append('date', dateInput);
+    formData.append('destination_id', destinationInput);
+    formData.append('description', descriptionInput);
+    formData.append('price', priceInput);
+    formData.append('seats', seatsInput);
+    formData.append('tour_guide_id', tourGuide);
+
+    // append(sent) each image file to the form data , to sent them as array
+    for (let i = 0; i < imageInput.length; i++) {
+        formData.append('images[]', imageInput[i]);
+    }
+
+    fetch('http://localhost/tourism/t_api/tourinsert.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(responseData => {
+        alert('Tour added successfully!');
+        window.location.href = './jordanTour.html';
+        console.log('POST request successful:', responseData);
+        
+    })
+    .catch(error => {
+        console.error('Error making POST request:', error);
+    });
+});
+
+
+/// Cancel button:
+function cancel(){
+  window.history.back();
+
+}
+</script>
+<script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/dashboard/js/popper.min.js"></script>
+<script src="/dashboard/js/bootstrap.min.js"></script>
+<script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".xp-menubar").on('click',function(){
+          $('#sidebar').toggleClass('active');
+          $('#content').toggleClass('active');
+        });
+        
+         $(".xp-menubar,.body-overlay").on('click',function(){
+           $('#sidebar,.body-overlay').toggleClass('show-nav');
+         });
+        
+      });
+</script>
+
+</body>
+

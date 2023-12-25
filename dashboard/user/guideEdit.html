@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title> Edit User | Dashboard</title>
+        <!-- icon link  -->
+      <link rel="icon" href="/images/logo.png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/dashboard/css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="/dashboard/css/custom.css">
+    <!--google material icon-->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+      <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ </head>
+<body>
+      
+<div class="wrapper">
+
+
+    <div class="body-overlay"></div>
+    
+    <!-------------------------sidebar------------>
+         <!-- Sidebar  -->
+     <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+      </div>
+      <ul class="list-unstyled components">
+          <li  class="">
+              <a href="/dashboard/home.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Home </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/des/destinations.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Destinations</span></a>
+          </li>
+          <li  class="active">
+              <a href="/dashboard/user/guids.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span> Tour guids </span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/user/User.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Users</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/jordanTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Jordan Tours</span></a>
+          </li>
+          <li  class="">
+              <a href="/dashboard/tours/palestineTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+              <span>Palestine Tours</span></a>
+          </li>
+          <li  class="">
+            <a href="/dashboard/booking.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Booking </span></a>
+        </li>
+          <li  class="">
+            <a href="/dashboard/adminProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+            <span> Admin Profile</span></a>
+        </li>
+         
+      </ul>
+
+     
+  </nav>
+  <div id="content">
+  <div class="top-navbar">
+    <div class="xp-topbar">
+
+          <!-- Start XP Row -->
+          <div class="row"> 
+              <!-- Start XP Col -->
+              <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                  <div class="xp-menubar">
+                         <span class="material-icons text-white">signal_cellular_alt
+           </span>
+                   </div>
+              </div> 
+              <!-- End XP Col -->
+<!-- Start XP Col -->
+<div class="col-md-5 col-lg-3 order-3 order-md-2">
+<div class="xp-searchbar">
+  
+</div>
+</div>
+<!-- End XP Col -->
+
+
+<div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+<button id="LOG">Logout</button>
+</div>
+          </div> 
+          <!-- End XP Row -->
+
+      </div>
+   <div class="xp-breadcrumbbar text-center">
+          <h4 class="page-title">Admin Dashboard</h4>  
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Edit Tour guide </a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>                
+      </div>
+
+ </div>
+ <div class="main-content">
+    <div class="row">
+        <div class="container">
+            <form id="userForm">
+                <h2>Edit Tour guide </h2>
+              <label>Username:</label>
+              <input type="text" id="username" placeholder="Enter Username">
+        
+              <label >Email:</label>
+              <input type="email" id="email" placeholder="Enter Email Address">
+
+              <label>Phone Number:</label>
+              <input type="number" id="phone_number"  placeholder="Enter Phone number">
+
+              <label>Role:</label>
+              <input type="text" id="role" placeholder="Enter Role">
+              <span>"Roles : admin , tour guide, users"</span>
+
+              <div>
+              <button class="btn-form"   type="submit">Update</button>
+              <button class="btn-form" type="button" onclick="cancel()">Cancel</button>
+              </div>
+
+            </form>
+        </div>
+
+    </div>
+ </div>
+</div>
+</div>
+
+<script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+<script src="/dashboard/js/popper.min.js"></script>
+<script src="/dashboard/js/bootstrap.min.js"></script>
+<script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".xp-menubar").on('click',function(){
+          $('#sidebar').toggleClass('active');
+          $('#content').toggleClass('active');
+        });
+        
+         $(".xp-menubar,.body-overlay").on('click',function(){
+           $('#sidebar,.body-overlay').toggleClass('show-nav');
+         });
+        
+      });
+</script>
+<script>
+
+
+
+/// Cancel button:
+function cancel(){
+    window.history.back();
+}
+
+
+/// local storage method to update:
+// get data from local storage and put it in the inputs
+document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve user data from local storage
+    let editedUserData = JSON.parse(localStorage.getItem('editedUserData'));
+
+    if (editedUserData) {
+      
+        document.getElementById('username').value = editedUserData.username || '';
+        document.getElementById('email').value = editedUserData.email || '';
+        document.getElementById('phone_number').value = editedUserData.phone_number || '';
+        document.getElementById('role').value = editedUserData.role || '';
+    }
+});
+
+
+/// Update User data
+document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+   
+    let editedUserData = JSON.parse(localStorage.getItem('editedUserData'));
+
+    if (!editedUserData) {
+        console.error('No user data found in local storage');
+        return;
+    }
+
+    let id = editedUserData.id;
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let phone_number = document.getElementById('phone_number').value;
+    let role = document.getElementById('role').value;
+
+  
+    let data = {
+        id: id,
+        username: username,
+        email: email,
+        phone_number: phone_number,
+        role: role
+    };
+
+    fetch(`http://localhost/tourism/t_api/userupdate.php?id=${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        alert('User data updated successfully!');
+        localStorage.removeItem('editedUserData');
+        window.location.href = './guids.html';
+    })
+    .catch(error => {
+        console.error('Error making PUT request:', error);
+    });
+})
+</script>
+
+<!-- <script>
+
+    // in edit user page
+    // update using urlParams:
+    document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const username = urlParams.get('username');
+    const email = urlParams.get('email');
+    const phone_number = urlParams.get('phone_number');
+    const role = urlParams.get('role');
+
+    // Populate the form
+    document.getElementById('username').value = username || '';
+    document.getElementById('email').value = email || '';
+    document.getElementById('phone_number').value = phone_number || '';
+    document.getElementById('role').value = role || '';
+});
+
+
+/// Update User data
+document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+    const urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get('id');
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let phone_number = document.getElementById('phone_number').value;
+    let role = document.getElementById('role').value;
+
+     // Construct the data object to be sent in the request
+     let data = {
+        id: id,
+        username: username,
+        email: email,
+        phone_number: phone_number,
+        role: role
+    };
+
+    fetch(`http://localhost/tourism/t_api/userupdate.php?id=${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+        alert('User data updated successfully!');
+        window.location.href = './User.html ';
+    })
+    .catch(error => {
+        console.error('Error making PUT request:', error);
+    });
+})
+</script> -->
+
+</body>

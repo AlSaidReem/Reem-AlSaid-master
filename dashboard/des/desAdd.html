@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+         <title>Destinations | Dashboard</title>
+         <!-- icon link  -->
+       <link rel="icon" href="/images/logo.png">
+         <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/dashboard/css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="/dashboard/css/custom.css">
+     <!--google material icon-->
+       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+  </head>
+  <body>
+  
+
+<div class="wrapper">
+
+
+        <div class="body-overlay"></div>
+		
+		<!-------------------------sidebar------------>
+		     <!-- Sidebar  -->
+             <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li  class="">
+                        <a href="/dashboard/home.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Home </span></a>
+                    </li>
+                    <li  class="active">
+                        <a href="./destinations.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Destinations</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="../user/guids.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Tour guids </span></a>
+                    </li>
+                    <li  class="">
+                      <a href="../user/User.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Users</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="../tours/jordanTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Jordan Tours</span></a>
+                    </li>
+                    <li  class="">
+                        <a href="../tours/palestineTour.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Palestine Tours</span></a>
+                    </li>
+                    <li  class="">
+                      <a href="../booking.html" class="dashboard"><i class="material-icons">dashboard</i>
+                      <span> Booking </span></a>
+                  </li>
+                    <li  class="">
+                        <a href="../adminProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Admin Profile</span></a>
+                    </li>
+                   
+                </ul>
+    
+               
+            </nav>
+		
+		
+		
+		
+		<!--------page-content---------------->
+		
+		<div id="content">
+		   
+		   <!--top--navbar----design--------->
+		   
+		   <div class="top-navbar">
+		      <div class="xp-topbar">
+
+                <!-- Start XP Row -->
+                <div class="row"> 
+                    <!-- Start XP Col -->
+                    <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                        <div class="xp-menubar">
+                               <span class="material-icons text-white">signal_cellular_alt
+							   </span>
+                         </div>
+                    </div> 
+                    <!-- End XP Col -->
+   <!-- Start XP Col -->
+   <div class="col-md-5 col-lg-3 order-3 order-md-2">
+    <div class="xp-searchbar">
+        
+    </div>
+</div>
+<!-- End XP Col -->
+
+
+<div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+  <button id="LOG">Logout</button>
+</div>
+                </div> 
+                <!-- End XP Row -->
+
+            </div>
+		     <div class="xp-breadcrumbbar text-center">
+                <h4 class="page-title">Admin Dashboard</h4>  
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"> Destinations</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                  </ol>                
+            </div>
+			
+		   </div>
+		   
+		   
+		   
+		   <!--------main-content------------->
+		   
+		   <div class="main-content">
+        <div class="row">
+          <div class="container">
+              <form id="desForm">
+                <h2>Add New Destination</h2>
+
+                <label>Destination name:</label>
+                <input type="text" id="name" placeholder="Enter Destination name name">
+          
+
+                <div>
+                <button class="btn-form"   type="submit">Add</button>
+                <button class="btn-form" type="button" onclick="cancel()">Cancel</button>
+                </div>
+
+              </form>
+            </div>
+        </div>
+     </div>
+    </div>
+</div>
+
+	
+<!----------html code compleate----------->
+<script>
+  function cancel(){
+    window.history.back();
+}
+
+  let logoutButtonNav = document.getElementById('LOG');
+  
+  const isloggedin = sessionStorage.getItem("isLoggedIn");
+  if (isloggedin == 'true') {
+    logoutButtonNav.addEventListener('click', (e) => {
+      window.location.href = '/index/index.html';
+      sessionStorage.clear();
+    });
+  }
+
+// add new destination:
+  document.getElementById('desForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    let name = document.getElementById('name').value;
+ 
+    if (!name ) {
+        alert('Please fill in all fields');
+        return; 
+    }
+    const url = 'http://localhost/tourism/t_api/insert_destination.php';
+    const data = {
+        name: name
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(responseData => {
+      
+        alert('Destination added successfully!');
+        console.log('POST request successful:', responseData);
+        window.location.href = "./destinations.html";
+    })
+    .catch(error => {
+        console.error('Error making POST request:', error);
+    });
+});
+  </script>
+
+
+
+
+
+
+
+  
+     <!-- Optional JavaScript -->
+     <script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+     <script src="/dashboard/js/popper.min.js"></script>
+     <script src="/dashboard/js/bootstrap.min.js"></script>
+     <script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+     <script type="text/javascript">
+         $(document).ready(function(){
+             $(".xp-menubar").on('click',function(){
+               $('#sidebar').toggleClass('active');
+               $('#content').toggleClass('active');
+             });
+             
+              $(".xp-menubar,.body-overlay").on('click',function(){
+                $('#sidebar,.body-overlay').toggleClass('show-nav');
+              });
+             
+           });
+     </script>
+  
+  
+
+
+
+  </body>
+  
+  </html>
+
+

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <title> Tour Guide | Dashboard </title>
+            <!-- icon link  -->
+          <link rel="icon" href="/images/logo.png">
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="/dashboard//css/bootstrap.min.css">
+            <!----css3---->
+            <link rel="stylesheet" href="/dashboard/css//custom.css">
+        <!--google material icon-->
+          <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+          <style>
+            .main-content{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            
+            .user-info{
+            min-height: 400px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 5px #074310a4;
+            border: thick double  #074310;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            }
+
+
+          .user-info h3{
+          color: #074310;
+          margin-bottom:5px;
+          font-size: x-large;
+           }  
+        
+          #password{
+          font-size: 10px;
+          }
+          .bottom {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          }
+          #editprofile{
+          margin-top: 10px;
+          }
+          button {
+          padding: 10px 30px;
+          border: 0;
+          border-radius: 5px;
+          background-color:#074310;
+          color: #fff;
+          font-weight: Bold;
+          transition: all 0.5s;
+          font-size: 20px;
+          -webkit-transition: all 0.5s;
+          }
+          button:hover {
+          background-color: #074310;
+          box-shadow: 0 0 20px #6fc5ff50;
+          transform: scale(1.1);
+          color: #fff;
+          }
+          button:active {
+          background-color:#E60808;
+          transition: all 0.25s;
+          -webkit-transition: all 0.25s;
+          box-shadow: none;
+          color: #fff;
+          transform: scale(0.98);
+          }
+          input {
+          width: 90%;
+          margin-bottom: 10px;
+          font-size: 20px;
+          }
+
+
+      </style>
+</head>
+
+<body>
+  
+
+<div class="wrapper">
+
+
+        <div class="body-overlay"></div>
+		
+		<!-------------------------sidebar------------>
+		     <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3><img src="/images/logo.png" id="img-fluid"/></h3>
+                </div>
+                <ul class="list-unstyled components">
+                    <li  class="">
+                        <a href="./guideHome.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Home </span></a>
+                    </li>
+                    <li  class="">
+                      <a href="./users.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span>Users</span></a>
+                    </li>
+                    <li  class="active">
+                        <a href="./guideProfile.html" class="dashboard"><i class="material-icons">dashboard</i>
+                        <span> Profile</span></a>
+                    </li>
+                   
+                </ul>
+            </nav>
+	
+		<!--------page-content---------------->
+		
+		<div id="content">
+		   
+            <div class="top-navbar">
+                <div class="xp-topbar">
+        
+                      <!-- Start XP Row -->
+                      <div class="row"> 
+                          <!-- Start XP Col -->
+                          <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                              <div class="xp-menubar">
+                                     <span class="material-icons text-white">signal_cellular_alt
+                       </span>
+                               </div>
+                          </div> 
+                          <!-- End XP Col -->
+         <!-- Start XP Col -->
+         <div class="col-md-5 col-lg-3 order-3 order-md-2">
+          <div class="xp-searchbar">
+              
+          </div>
+        </div>
+        <!-- End XP Col -->
+        
+        
+        <div class=" logout col-10 col-md-6 col-lg-8 order-1 order-md-3">
+        <button id="LOG">Logout</button>
+        </div>
+                      </div> 
+                      <!-- End XP Row -->
+        
+                  </div>
+               <div class="xp-breadcrumbbar text-center">
+                      <h4 class="page-title">Tour Guide Dashboard</h4>  
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#"> Edit Profile  </a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>                
+                  </div>
+            
+             </div>
+             <div class="main-content">		  
+			    
+              <div class="col-md-5">
+          <div class="table-wrapper">
+          <form id="userForm">
+           <div class="user-info">
+          
+            <h4>Username :</h4>
+            <input type="text" id="username">
+
+            <h4>Email : </h4>
+            <input id="email" type="email">
+
+            <h4>Password :</h4>
+            <input  id="password" type="password">
+
+            <h4>Phone Number :</h4>
+            <input id="phone_number" type="number">
+
+          <div>
+            <button id="editprofile" type="submit">Update</button>
+            <button type="button"  onclick="cancel()"> Cancel</button>
+          </div>
+            </div>
+        </form>
+      </div>
+      </div>
+        
+      </div>
+        </div>
+</div>
+<script>
+  let logoutButtonNav = document.getElementById('LOG');
+  
+  const isloggedin = sessionStorage.getItem("isLoggedIn");
+  if (isloggedin == 'true') {
+    logoutButtonNav.addEventListener('click', (e) => {
+      window.location.href = '/index/index.html';
+      sessionStorage.clear();
+    });
+  }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+ 
+ var userId = sessionStorage.getItem('id');
+ console.log(userId)
+ if (userId) {
+ 
+     function fetchUserData() {
+         fetch(`http://localhost/tourism/t_api/userread.php?id=${userId}`, {
+             method: 'GET',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+         })
+             .then(response => {
+                 if (!response.ok) {
+                     throw new Error('Network response was not ok');
+                 }
+                 return response.json();
+             })
+             .then(data => {
+                 console.log(data);
+                 document.getElementById('username').value = data.username;
+                 document.getElementById('email').value = data.email;
+                 document.getElementById('password').value = data.password;
+                 document.getElementById('phone_number').value = data.phone_number;
+             })
+             .catch(error => console.error('Error fetching user data:', error));
+     }
+
+     fetchUserData();
+
+ } else {
+     console.error('User id not found in sessionStorage');
+ }
+})
+
+// Update user information using update button:
+document.getElementById('userForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  let editedUserData = {
+      username: document.getElementById('username').value,
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value,
+      phone_number: document.getElementById('phone_number').value,
+  };
+
+  updateUserData(editedUserData);
+});
+
+function updateUserData(updatedUserData) {
+ var userId = sessionStorage.getItem('id');
+ console.log(userId)
+  fetch(`http://localhost/tourism/t_api/userupdate.php?id=${userId}`, {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedUserData)
+  })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          alert('Profile updated successfully!');
+          window.location.href = './guideProfile.html'
+      })
+      .catch(error => console.error('Error updating user data:', error));
+    }
+
+// go back to profile page
+    function cancel(){
+  window.location.href ='./guideProfile.html'
+
+}
+
+  </script>
+
+     <!-- Optional JavaScript -->
+     <!-- Optional JavaScript -->
+     <script src="/dashboard/js/jquery-3.3.1.slim.min.js"></script>
+     <script src="/dashboard/js/popper.min.js"></script>
+     <script src="/dashboard/js/bootstrap.min.js"></script>
+     <script src="/dashboard/js/jquery-3.3.1.min.js"></script>
+     <script type="text/javascript">
+         $(document).ready(function(){
+             $(".xp-menubar").on('click',function(){
+               $('#sidebar').toggleClass('active');
+               $('#content').toggleClass('active');
+             });
+             
+              $(".xp-menubar,.body-overlay").on('click',function(){
+                $('#sidebar,.body-overlay').toggleClass('show-nav');
+              });
+             
+           });
+     </script>
+  
+  
+
+
+
+  </body>
+  
+  </html>
+
+
