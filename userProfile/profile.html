@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Al Bosta | Profile</title>
+     <!-- style sheet -->
+    <link rel="stylesheet" href="./profile.css">
+    <!-- icon link  -->
+    <link rel="icon" href="/images/logo.png">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/index/index.html"><img src="/images/logo.png" alt=" Al Bosta Logo"></a>
+        <div class="menu-btn">
+ 
+        </div>
+        <div class="navigation">
+          <div class="navigation-items">
+              <a href="/index/index.html"> Home </a>
+              <a href="/about/about.html"> About us </a>
+              <a id="drop"> Destinations </a>
+                <ul class="drop-down">
+                  <li><a href="/jordan/jordan.html" style="color: black;"> Jordan</a></li>
+                  <li><a href="/palestine/palestine.html"> Palestine</a></li>
+                </ul>
+              <a href="/contact/contact.html"> Contact us </a>
+              <a id="sigupp"> Sign Up </a>
+              <button id="loginn">Login </button>
+          </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1> <span id="user"></span>'s profile </h1>
+    </section>
+    
+    <div class="backdrop" id="backdrop"></div>
+
+    <section class="profile-info">
+        <div class="user-info">
+          
+            <h3 >Username :</h3>
+            <p id="username">Reem</p>
+
+            <h3 >Email : </h3>
+            <p id="email">Reem@gmail.com</p>
+
+            <!-- <h3 >Password :</h3> -->
+            <input  id="password" type="hidden">
+           
+
+            <h3 >Phone Number :</h3>
+            <p id="phone_number">077777777</p>
+
+            <!-- <h3 >Role :</h3> -->
+            <input type="hidden" id="role">
+            <button id="editprofile" type="button">Edit Profile</button>
+        </div>
+
+
+
+    <!-- booking cart -->
+     <div class="Cart-Container">
+        <table>
+          <thead>
+            <tr>
+              <th> Tour name</th>
+              <th> Image </th>
+              <th> Date</th>
+              <th> Description</th>
+              <th> Price </th>
+              <th> Booking Date</th>
+              <th> Action </th>
+            </tr>
+            
+          </thead>
+          <tbody id="book_table"></tbody>
+        </table>
+        <div class="checkout">
+          <button id="checkout"> Checkout</button>
+         </div>
+     </div>
+    </section>
+
+
+    <div class="popup" id="popup">
+        <form id="userForm">
+            <label>Name:</label>
+            <input type="text" id="usernameInput" placeholder="Enter Username">
+            
+            <label >Email:</label>
+            <input type="email" id="emailInput" placeholder="Enter Email Address">
+
+            <label>Password:</label>
+            <input type="password" id="passwordInput"placeholder="Enter Password">
+            <span>"Please enter at least 8 characters with a number, symbol, lowercase, and uppercase letters!"</span>
+            
+            <label>Phone Number:</label>
+            <input type="number" id="phone_numberInput"  placeholder="Enter Phone number">
+            <span>"Please Enter Phone number with 10 numbers start with 077!"</span>
+
+            
+            <button type="submit" id="update"> Update </button>
+          
+
+        </form>
+        
+    </div>
+
+ <!-- Footer -->
+ <footer class="footer-distributed">
+  <div class="footer-left">
+    <img src="/images/logo.png" alt="Logo">
+
+    <p class="footer-links">
+      <a href="/index/index.html"> Home</a>
+      |
+      <a href="./about.html"> About us</a>
+      |
+      <a href="/contact/contact.html"> Contact us</a>
+
+    </p>
+    <p class="footer-company-name"> Copyright © 2023 <strong> Al-Bosta</strong> All rights reserved </p>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa-solid fa-location-dot"></i>
+      <p> As Salt, Balqa, Jordan</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-phone"></i>
+      <p>009627758921755</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-envelope-circle-check"></i>
+      <p> albosta@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About the agency</span>
+      <span> Al-Bosta is a tourism agency focused on flourishing the travel to Jordan and Palestine, to share the rich culture, beautiful views, and give a breath of fresh air.</span>
+    </p>
+    <div class="footer-icon">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+
+    </div>
+  </div>
+</footer>
+<script src="./profile.js"></script>
+
+</body>
