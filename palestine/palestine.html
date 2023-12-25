@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Al Bosta | Palestine </title>
+     <!-- style sheet -->
+    <link rel="stylesheet" href="palestine.css">
+    <!-- icon link  -->
+    <link rel="icon" href="/images/logo.png">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/index/index.html"><img src="/images/logo.png" alt=" Al Bosta Logo"></a>
+        <div class="menu-btn">
+ 
+        </div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="/index/index.html"> Home </a>
+                <a href="/about/about.html"> About us </a>
+                <a id="drop"> Destinations </a>
+                  <ul class="drop-down">
+                    <li><a href="/jordan/jordan.html" style="color: black;"> Jordan</a></li>
+                    <li><a href="#home"> Palestine</a></li>
+                  </ul>
+                <a href="/contact/contact.html"> Contact us </a>
+                <a id="sigupp"> Sign Up </a>
+              <button id="loginn">Login </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1> Palestine </h1>
+    </section>
+
+    <section id="about-jo">
+     <div class="jo-des">
+        <h2>Why should you visit Palestine ?</h2>
+        <p>Palestine has thousands of years of history, religion and culture, it has delicious traditional food, drinks and sweets and perhaps most importantly – very warm, friendly and welcoming people. While you may have heard or seen many negative portrayals of Palestine and Palestinians in the media, these are misrepresented and not true. When you visit Palestine you will find a totally different reality to what you have probably heard. 
+        </p>
+        <br>
+        <p>People visit Palestine for a variety of reasons, whether for a religious pilgrimage, for a holiday, for backpacking, for volunteering or to show solidarity with the Palestinian people and get a deeper understanding of the Palestinian Issue and life under Israeli Occupation. </p>
+     </div>
+     <div class="jo-flag">
+        <img src="/images/palestine_map_111.png" alt="Palestine map">
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595547.7625829275!2d37.061376766503564!3d31.25758696603472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15006f476664de99%3A0x8d285b0751264e99!2sJordan!5e0!3m2!1sen!2sjo!4v1700909840397!5m2!1sen!2sjo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+     </div>
+    </section>
+    
+
+    <section class="info">
+        <div class="layout">
+          <div>
+            <img src="/images/capital.png" alt="">
+            <h2> Capital </h2>
+            <h3> Jerusalem </h3>
+          </div>
+          <div>
+            <img src="/images/location.png" alt="">
+            <h2> Area  </h2>
+            <h3> 27027 km2</h3>
+          </div>
+          <div>
+            <img src="/images/language.png" alt="">
+            <h2> Language </h2>
+            <h3> Arabic </h3>
+          </div>
+          <div>
+            <img src="/images/weather.png" alt="">
+            <h2> Weather </h2>
+            <h3> Usually mediterranean climate </h3>
+          </div>
+          <div>
+            <img src="/images/religion.png" alt="">
+            <h2> Religion </h2>
+            <h3>49.4% Islam</h3>
+          </div>
+          <div>
+            <img src="/images/currency.png" alt="">
+            <h2> Currency </h2>
+            <h3> Palestine pound </h3>
+          </div>
+          <div>
+            <img src="/images/population.png" alt="">
+            <h2> Population </h2>
+            <h3>6.923 Million</h3>
+          </div>
+        </div>
+    </section>
+
+    <section id="jo-tours">
+        <h2> Palestine's Tours</h2>
+        <div class="filter">
+            <div class="name">
+            <h3>Search for Tour Name</h3>
+              <input oninput="searchTours()" id="nameInput" name="name" placeholder="Tour name ...">
+            </div>
+            <div class="date-filter">
+               <h3>Select Period of Dates</h3>
+               <label for="from">From:</label>
+                <input type="date" id="from">
+                <label for="to">To:</label>
+                <input type="date" id="to">
+                <button onclick="searchToursByDate()" id="seacrh"> Search </button>
+            </div>
+        </div>
+        <div id="container" class="container"></div>
+    
+    </section>
+ <!-- Footer -->
+ <footer class="footer-distributed">
+  <div class="footer-left">
+    <img src="/images/logo.png" alt="Logo">
+
+    <p class="footer-links">
+      <a href="/index/index.html"> Home</a>
+      |
+      <a href="./about.html"> About us</a>
+      |
+      <a href="/contact/contact.html"> Contact us</a>
+
+    </p>
+    <p class="footer-company-name"> Copyright © 2023 <strong> Al-Bosta</strong> All rights reserved </p>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa-solid fa-location-dot"></i>
+      <p> As Salt, Balqa, Jordan</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-phone"></i>
+      <p>009627758921755</p>
+    </div>
+    <div>
+      <i class="fa-solid fa-envelope-circle-check"></i>
+      <p> albosta@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About the agency</span>
+      <span> Al-Bosta is a tourism agency focused on flourishing the travel to Jordan and Palestine, to share the rich culture, beautiful views, and give a breath of fresh air.</span>
+    </p>
+    <div class="footer-icon">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+
+    </div>
+  </div>
+</footer>
+
+    <script src="palestine.js"></script>
+</body>
